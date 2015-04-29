@@ -370,7 +370,10 @@ class BaseTask(object):
 
     # Convert primitive types to the unit hypercube
     def int_to_unit(self, v, vmin, vmax):
-        unit = (np.double(v) - vmin) / (vmax - vmin)
+        if vmax > vmin:
+            unit = (np.double(v) - vmin) / (vmax - vmin)
+        else:
+            unit = 0.*v
         
         # Make sure we are not over bounds
         try:
@@ -384,7 +387,10 @@ class BaseTask(object):
         return unit
 
     def float_to_unit(self, v, vmin, vmax):
-        unit = (np.double(v) - vmin) / (vmax - vmin)
+        if vmax > vmin:
+            unit = (np.double(v) - vmin) / (vmax - vmin)
+        else:
+            unit = 0.*v
         
         # Make sure we are not over bounds
         try:
