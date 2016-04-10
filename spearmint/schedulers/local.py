@@ -199,7 +199,7 @@ class LocalScheduler(AbstractScheduler):
         cmd = ('python %s/launcher.py --database-address %s --experiment-name %s --job-id %s' % 
                (base_path, database_address, experiment_name, job_id))
         
-        output_directory = os.path.join(experiment_dir, 'output')
+        output_directory = os.path.join(experiment_dir, 'output', experiment_name)
         if not os.path.isdir(output_directory):
             os.mkdir(output_directory)
 
