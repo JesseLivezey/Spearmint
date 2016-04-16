@@ -246,18 +246,18 @@ class BaseTask(object):
         
         if indent_top_row:
             sys.stderr.write(indentation)
-        sys.stderr.write('NAME          TYPE       VALUE\n')
+        sys.stderr.write('NAME                  TYPE       VALUE\n')
         sys.stderr.write(indentation)
-        sys.stderr.write('----          ----       -----\n')
+        sys.stderr.write('----                  ----       -----\n')
 
-        for param_name, param in params.iteritems():
+        for param_name, param in sorted(params.iteritems()):
 
             if param['type'] == 'float':
-                format_str = '%s%-12.12s  %-9.9s  %-12f\n'
+                format_str = '%s%-20.20s  %-9.9s  %-12f\n'
             elif param['type'] == 'enum':
-                format_str = '%s%-12.12s  %-9.9s  %-12s\n'
+                format_str = '%s%-20.20s  %-9.9s  %-12s\n'
             else:
-                format_str = '%s%-12.12s  %-9.9s  %-12d\n'
+                format_str = '%s%-20.20s  %-9.9s  %-12d\n'
 
             for i in xrange(len(param['values'])):
                 if i == 0:
